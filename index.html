@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6fbf5">
+  <meta name="description" content="Custom rolling shutters, sliding gates and entrance fabrication by Hitesh Industries, Bengaluru.">
+  <title>Hitesh Industries | Gates & Rolling Shutters</title>
+  <style>
+    :root {
+      --forest: #174b34;
+      --green: #2f8a50;
+      --lime: #b7e878;
+      --pale: #edf7e9;
+      --paper: #f8fbf6;
+      --ink: #1d2a22;
+      --muted: #647267;
+      --line: #dce8da;
+      --white: #fff;
+      --radius: 22px;
+      --shadow: 0 22px 60px rgb(25 67 43 / 11%);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { height: 82px; display: flex; align-items: center; border-bottom: 1px solid rgb(23 75 52 / 8%); background: rgb(248 251 246 / 90%); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; color: var(--forest); font-size: 19px; }
+    .brand-mark { display: grid; place-items: center; height: 40px; width: 40px; border-radius: 50%; background: var(--lime); color: var(--forest); font: 700 27px Georgia, serif; }
+    .navlinks { display: flex; align-items: center; gap: 32px; color: #536157; font-size: 14px; font-weight: 600; }
+    .navlinks a:hover { color: var(--green); }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; padding: 0 22px; background: var(--forest); color: #fff; font-size: 14px; font-weight: 700; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--green); }
+    .button.light { background: #fff; color: var(--forest); box-shadow: 0 8px 24px rgb(18 58 37 / 10%); }
+    .hero { position: relative; overflow: hidden; padding: 74px 0 82px; background: radial-gradient(ellipse at 80% 35%, #e6f4d9 0, transparent 36%), var(--paper); }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 45px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--lime); }
+    h1 { margin: 20px 0 19px; max-width: 620px; font-size: clamp(42px, 5.5vw, 70px); line-height: .99; letter-spacing: -.065em; color: var(--forest); }
+    h1 em { color: var(--green); font-style: normal; }
+    .intro { margin: 0; max-width: 540px; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .hero-actions { display: flex; align-items: center; gap: 13px; margin-top: 29px; flex-wrap: wrap; }
+    .phone-note { color: var(--muted); font-size: 13px; margin-top: 24px; }
+    .phone-note strong { color: var(--forest); }
+    .hero-art { position: relative; min-height: 420px; border-radius: 34px; overflow: hidden; background: #dcefd0; box-shadow: var(--shadow); isolation: isolate; }
+    .hero-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-art::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgb(15 45 25 / 52%)); }
+    .art-sky { position: absolute; inset: 0; background: linear-gradient(155deg, #e8f5df 0 48%, #c7e3b6 48% 100%); }
+    .sun { position: absolute; top: 42px; right: 58px; width: 77px; height: 77px; border-radius: 50%; background: #c9eb8c; }
+    .house { position: absolute; z-index: 1; width: 57%; height: 58%; right: 12%; bottom: 23%; background: #fffdf8; clip-path: polygon(50% 0, 100% 34%, 100% 100%, 0 100%, 0 34%); filter: drop-shadow(0 12px 8px rgb(45 78 49 / 10%)); }
+    .house::before { content: ""; position: absolute; width: 25%; height: 62%; left: 38%; bottom: 0; background: #e9efe5; border-radius: 70px 70px 0 0; }
+    .window { position: absolute; top: 43%; width: 14%; height: 18%; border: 5px solid #d5e7cf; background: #eef7e9; }
+    .window.one { left: 13%; } .window.two { right: 13%; }
+    .drive { position: absolute; z-index: 0; width: 100%; height: 36%; bottom: 0; background: linear-gradient(165deg, #abcda0, #8eb681); clip-path: polygon(32% 0, 71% 0, 100% 100%, 0 100%); }
+    .gate { position: absolute; z-index: 2; left: 7%; right: 7%; bottom: 11%; height: 28%; border: 7px solid #315c43; border-bottom: 0; background: repeating-linear-gradient(90deg, #466f53 0 6px, #b8d1ad 6px 13px); box-shadow: 0 12px 22px rgb(29 63 38 / 20%); }
+    .gate::before { content: ""; position: absolute; left: 48%; top: -7px; height: calc(100% + 7px); width: 5px; background: #315c43; }
+    .gate-label { position: absolute; z-index: 3; left: 22px; bottom: 20px; border-radius: 15px; padding: 13px 17px; background: #fff; color: var(--forest); font-size: 12px; font-weight: 800; box-shadow: 0 8px 26px rgb(22 62 39 / 12%); }
+    .gate-label span { display: block; color: var(--muted); font-size: 10px; font-weight: 600; margin-top: 4px; }
+    .section { padding: 84px 0; }
+    .section-heading { max-width: 650px; margin-bottom: 34px; }
+    .section-heading h2 { margin: 13px 0 10px; color: var(--forest); font-size: clamp(31px, 4vw, 46px); line-height: 1.05; letter-spacing: -.05em; }
+    .section-heading p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .services { background: #fff; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 25px; background: #fff; transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .card-icon { display: grid; place-items: center; width: 53px; height: 53px; border-radius: 17px; margin-bottom: 19px; color: var(--forest); background: var(--pale); }
+    .card-icon svg { width: 27px; height: 27px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .card h3 { margin: 0 0 9px; color: var(--forest); font-size: 19px; letter-spacing: -.025em; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .gallery-section { background: #f2f8ef; }
+    .gallery-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; }
+    .gallery-heading .section-heading { margin-bottom: 30px; }
+    .upload-box[hidden] { display: none; }
+    .upload-box { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding-bottom: 30px; flex: 0 0 auto; }
+    .upload-note, .gallery-storage-note { color: var(--muted); font-size: 12px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .gallery-item { position: relative; overflow: hidden; min-height: 220px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 9px 26px rgb(25 67 43 / 6%); }
+    .gallery-item img, .gallery-item video { display: block; width: 100%; height: 250px; object-fit: cover; background: #e6eee2; }
+    .gallery-item figcaption { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; color: var(--forest); font-size: 13px; font-weight: 650; }
+    .gallery-item figcaption span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .gallery-remove { flex: 0 0 auto; border: 0; border-radius: 999px; padding: 7px 10px; background: var(--pale); color: var(--forest); cursor: pointer; font: inherit; font-size: 11px; }
+    .gallery-empty[hidden] { display: none; }
+    .gallery-empty { grid-column: 1 / -1; display: grid; place-items: center; min-height: 160px; padding: 20px; border: 1px dashed #b8cfb3; border-radius: 18px; color: var(--muted); text-align: center; }
+    .gallery-storage-note { margin: 16px 0 0; }
+    .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+    .about-panel { min-height: 310px; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; border-radius: 30px; background: linear-gradient(145deg, #dff0d4, #b6d995); }
+    .about-panel .big-h { color: rgb(23 75 52 / 18%); font: 700 180px/.75 Georgia, serif; letter-spacing: -.1em; }
+    .about-panel p { margin: 28px 0 0; max-width: 270px; color: var(--forest); font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .about-copy h2 { margin: 14px 0; color: var(--forest); font-size: clamp(32px, 4vw, 46px); line-height: 1.05; letter-spacing: -.05em; }
+    .about-copy > p { color: var(--muted); line-height: 1.8; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 18px; padding: 0; margin: 24px 0 0; list-style: none; color: var(--forest); font-size: 14px; font-weight: 650; }
+    .checks li::before { content: "✓"; display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 8px; border-radius: 50%; background: var(--lime); font-size: 12px; }
+    .cta { padding: 62px 0; background: var(--forest); color: #fff; }
+    .cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .cta h2 { max-width: 650px; margin: 0 0 9px; font-size: clamp(29px, 4vw, 43px); line-height: 1.08; letter-spacing: -.045em; }
+    .cta p { margin: 0; color: #c7d9cc; }
+    .cta .button { color: var(--forest); background: var(--lime); flex: 0 0 auto; }
+    .contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 25px; padding: 38px 0; }
+    .contact h2 { margin: 0 0 6px; color: var(--forest); font-size: 21px; }
+    .contact p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact-links a { color: var(--forest); border: 1px solid var(--line); border-radius: 999px; padding: 11px 16px; font-size: 13px; font-weight: 700; background: #fff; }
+    footer { padding: 16px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .navlinks { display: none; }
+      .hero { padding: 55px 0 62px; }
+      .hero-grid, .about { grid-template-columns: 1fr; }
+      .hero-grid { gap: 35px; }
+      .hero-art { min-height: 380px; }
+      .about { gap: 35px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .gallery-heading { align-items: flex-start; flex-direction: column; gap: 0; }
+      .upload-box { padding-bottom: 25px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item img, .gallery-item video { height: 210px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 32px, 1160px); }
+      .topbar { height: 70px; }
+      .brand { font-size: 16px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .topbar .button { min-height: 41px; padding: 0 15px; font-size: 12px; }
+      .hero { padding: 43px 0 50px; }
+      h1 { font-size: clamp(42px, 13vw, 61px); }
+      .intro { font-size: 15px; }
+      .hero-art { min-height: 300px; border-radius: 24px; }
+      .house { width: 66%; right: 8%; }
+      .gate { left: 5%; right: 5%; }
+      .section { padding: 62px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item img, .gallery-item video { height: 230px; }
+      .upload-box .button { font-size: 13px; }
+      .card { padding: 22px; }
+      .about-panel { min-height: 245px; }
+      .about-panel .big-h { font-size: 145px; }
+      .checks { grid-template-columns: 1fr; }
+      .cta { padding: 48px 0; }
+      .cta-inner { align-items: flex-start; flex-direction: column; }
+      .contact { align-items: flex-start; flex-direction: column; }
+    }
+    /* Refined modern finish */
+    :root { --forest: #123d2b; --green: #25804a; --lime: #b9ea7d; --pale: #eff7eb; --paper: #fbfdf9; --muted: #627267; --line: #e2ebe0; --radius: 24px; --shadow: 0 24px 70px rgb(18 61 43 / 14%); }
+    body { letter-spacing: -.01em; }
+    .topbar { position: sticky; top: 0; z-index: 20; height: 76px; border-bottom-color: rgb(23 75 52 / 7%); background: rgb(251 253 249 / 86%); backdrop-filter: blur(18px); }
+    .brand { gap: 10px; font-size: 17px; letter-spacing: -.045em; }
+    .brand-mark { width: 42px; height: 42px; box-shadow: inset 0 0 0 1px rgb(18 61 43 / 7%); }
+    .navlinks { gap: 29px; font-size: 13px; }
+    .navlinks a { transition: color .2s ease; }
+    .button { min-height: 50px; padding-inline: 24px; box-shadow: 0 8px 20px rgb(18 61 43 / 12%); transition: transform .22s ease, background .22s ease, box-shadow .22s ease; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 13px 25px rgb(18 61 43 / 17%); }
+    .button.light { border: 1px solid #e6eee3; box-shadow: 0 8px 20px rgb(18 61 43 / 5%); }
+    .hero { padding: 78px 0 88px; background: radial-gradient(circle at 82% 24%, rgb(205 235 180 / 56%), transparent 32%), linear-gradient(180deg,#f8fcf5 0%,#fbfdf9 100%); }
+    .hero-grid { gap: 58px; }
+    .eyebrow { padding: 8px 12px; border: 1px solid #dcebd5; border-radius: 999px; background: rgb(239 247 235 / 75%); font-size: 10px; letter-spacing: .13em; }
+    .eyebrow::before { width: 7px; height: 7px; border-radius: 50%; box-shadow: 0 0 0 3px rgb(185 234 125 / 27%); }
+    h1 { margin-top: 23px; font-size: clamp(48px, 6vw, 76px); line-height: .98; letter-spacing: -.075em; }
+    h1 em { color: #33894f; }
+    .intro { font-size: 16px; line-height: 1.8; }
+    .hero-art { min-height: 465px; border: 8px solid #fff; border-radius: 30px; box-shadow: 0 28px 75px rgb(27 67 41 / 19%); transform: rotate(1deg); }
+    .hero-art img { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .hero-art:hover img { transform: scale(1.045); }
+    .gate-label { left: 20px; bottom: 20px; border: 1px solid rgb(255 255 255 / 65%); border-radius: 16px; padding: 14px 17px; box-shadow: 0 12px 35px rgb(15 45 25 / 20%); }
+    .section { padding: 96px 0; }
+    .section-heading { margin-bottom: 38px; }
+    .section-heading h2 { margin-top: 16px; font-size: clamp(34px, 4vw, 49px); letter-spacing: -.06em; }
+    .services { background: #fff; }
+    .cards { gap: 16px; }
+    .card { position: relative; display: block; min-height: 230px; padding: 26px; border-color: #e8eee6; border-radius: 20px; box-shadow: 0 6px 22px rgb(21 59 37 / 3%); }
+    .card::after { content: "↗"; position: absolute; top: 25px; right: 25px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--forest); background: var(--pale); font-size: 15px; opacity: 0; transform: translate(-4px,4px); transition: .2s ease; }
+.card:hover { border-color: #c6dfbd; transform: translateY(-6px); box-shadow: 0 18px 36px rgb(21 59 37 / 9%); }
+    .card:hover::after { opacity: 1; transform: translate(0,0); }
+    .card-icon { width: 50px; height: 50px; border-radius: 15px; color: #247748; background: linear-gradient(145deg,#eff8e9,#e7f3df); }
+    .card h3 { margin-top: 22px; font-size: 17px; }
+    .card p { font-size: 13px; }
+    .gallery-section { background: linear-gradient(180deg,#f1f8ed,#f8fbf6); }
+    .gallery-item { border: 0; border-radius: 20px; box-shadow: 0 12px 32px rgb(21 59 37 / 8%); }
+    .gallery-item img, .gallery-item video { border-radius: 20px 20px 0 0; }
+    .gallery-empty { background: rgb(255 255 255 / 55%); }
+    .about-panel { overflow: hidden; position: relative; min-height: 340px; border: 1px solid #d8e8cf; background: radial-gradient(circle at 85% 14%,rgb(255 255 255 / 60%),transparent 30%),linear-gradient(145deg,#eaf6e3,#c3e3ae); }
+    .about-panel .big-h { font-size: 200px; }
+    .cta { background: radial-gradient(circle at 95% 0%,#2c7048 0,transparent 35%),var(--forest); }
+    .cta .button { box-shadow: 0 10px 26px rgb(0 0 0 / 16%); }
+    .contact-links a { transition: border-color .2s ease, transform .2s ease; }
+    .contact-links a:hover { border-color: #b7d7ac; transform: translateY(-2px); }
+    @media (max-width: 800px) { .hero { padding: 62px 0 72px; } .hero-art { min-height: 400px; } }
+    @media (max-width: 560px) { .topbar { height: 66px; } .brand { font-size: 14px; } .brand-mark { width: 36px; height: 36px; } .hero { padding: 45px 0 54px; } .hero-grid { gap: 30px; } h1 { font-size: clamp(44px, 13vw, 62px); } .hero-art { min-height: 290px; border-width: 5px; border-radius: 22px; } .section { padding: 68px 0; } .card { min-height: 0; padding: 23px; } .card h3 { margin-top: 17px; } .about-panel { min-height: 255px; } }
+    .quote-section { background: #fff; }
+    .quote-layout { display: grid; grid-template-columns: .75fr 1.25fr; align-items: start; gap: 58px; }
+    .quote-intro { position: sticky; top: 105px; }
+    .quote-intro h2 { margin: 16px 0; color: var(--forest); font-size: clamp(34px,4vw,49px); line-height: 1.03; letter-spacing: -.06em; }
+    .quote-intro > p { color: var(--muted); line-height: 1.8; }
+    .quote-contact { display: flex; flex-direction: column; gap: 5px; margin-top: 25px; color: var(--muted); font-size: 13px; }
+    .quote-contact a { color: var(--forest); font-weight: 750; }
+    .quote-form { padding: 30px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 15px 40px rgb(18 61 43 / 6%); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .form-grid label { display: flex; flex-direction: column; gap: 8px; color: var(--forest); font-size: 12px; font-weight: 750; }
+    .form-grid .wide { grid-column: 1 / -1; }
+    .form-grid input, .form-grid select, .form-grid textarea { width: 100%; min-height: 46px; padding: 12px 13px; border: 1px solid #dce7d9; border-radius: 11px; outline: none; background: #fff; color: var(--ink); font: inherit; font-size: 14px; }
+    .form-grid textarea { min-height: 110px; resize: vertical; }
+    .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgb(47 138 80 / 12%); }
+    .upload-field input { padding: 10px; background: #fff; }
+    .file-help { color: var(--muted); font-size: 11px; line-height: 1.5; font-weight: 500; }
+    .file-list { color: var(--forest); font-size: 12px; font-weight: 600; }
+    .quote-disclaimer, .quote-status { color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .quote-form > .button { border: 0; cursor: pointer; }
+    .quote-status { min-height: 16px; margin: 10px 0 0; }
+    @media (max-width: 800px) { .quote-layout { grid-template-columns: 1fr; gap: 28px; } .quote-intro { position: static; } }
+    @media (max-width: 560px) { .quote-form { padding: 21px; } .form-grid { grid-template-columns: 1fr; } .form-grid .wide { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">H</span><span>HITESH INDUSTRIES</span></a>
+      <div class="navlinks"><a href="#solutions">Solutions</a><a href="#gallery">Gallery</a><a href="#about">Why Hitesh Industries</a><a href="#quote">Request a quote</a><a href="#contact">Contact</a></div>
+      <a class="button" href="tel:+919448686423">Call us <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid wrap">
+        <div>
+          <div class="eyebrow">Made for your entrance</div>
+          <h1>A stronger first impression starts at your <em>gate.</em></h1>
+          <p class="intro">Custom rolling shutters, sliding gates and entrance fabrication—designed around your home, built for everyday use.</p>
+          <div class="hero-actions"><a class="button" href="#contact">Plan your entrance <span aria-hidden="true">→</span></a><a class="button light" href="#solutions">Explore our work</a></div>
+          <p class="phone-note">Talk to our team: <strong>94486 86423</strong></p>
+        </div>
+        <div class="hero-art">
+          <img src="images/green-rolling-shutter.jpg" alt="Green custom rolling shutter by Hitesh Industries">
+          <div class="gate-label">Made to fit your home<span>Custom rolling shutters · Bengaluru</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="solutions">
+      <div class="wrap">
+        <div class="section-heading"><div class="eyebrow">What we make</div><h2>Built around the way you enter.</h2><p>From a new home’s front gate to dependable industrial access, we fabricate practical solutions to suit your space.</p></div>
+        <div class="cards">
+          <a class="card" href="solutions/rolling-shutters.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 20V5h16v15M4 9h16M4 13h16M4 17h16M8 5v15M16 5v15"/></svg></div><h3>Rolling shutters</h3><p>Made-to-measure shutters for homes and businesses, with motorized operation available for smooth everyday access.</p></a>
+          <a class="card" href="solutions/sliding-gates.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 20V6h15v14M6 9h9M6 12h9M6 15h9M18 12h3m-2-2 2 2-2 2"/></svg></div><h3>Sliding gates</h3><p>Space-smart sliding gates, crafted to complement your entrance and available with motorized movement.</p></a>
+          <a class="card" href="solutions/house-entrance-gates.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 20V5h16v15M4 9h16M8 5v15m8-15v15M2 20h20"/></svg></div><h3>House entrance gates</h3><p>Custom normal gates with designs and dimensions planned for your home’s frontage and daily needs.</p></a>
+          <a class="card" href="solutions/ss-ms-fabrication.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 20V4m4 16V4m4 16V4m4 16V4m4 16V4M2 8h20M2 16h20"/></svg></div><h3>SS &amp; MS fabrication</h3><p>Fabrication work in stainless steel and mild steel for residential and commercial requirements.</p></a>
+          <a class="card" href="solutions/boom-barriers.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 18h18M6 18V6h2v12m8 0V6h2v12M8 8h8M8 12h8m-7-8h6"/></svg></div><h3>Boom barriers</h3><p>Access control barrier solutions for company premises, parking areas and other managed entries.</p></a>
+          <a class="card" href="solutions/custom-projects.html"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19 19 4m-9 0h9v9M5 5h4M5 5v4M5 19h4m10-4v4h-4"/></svg></div><h3>Custom projects</h3><p>Have a specific entrance or fabrication brief? Tell us what the site needs and we’ll discuss a suitable build.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="gallery-heading">
+          <div class="section-heading"><div class="eyebrow">Our work</div><h2>Made, fitted, and ready for everyday use.</h2><p>Add photos and videos of completed projects to build your own gallery.</p></div>
+          <div class="upload-box" id="manager-upload" hidden><input id="media-upload" type="file" accept="image/*,video/*" multiple hidden><button class="button" id="upload-trigger" type="button">＋ Add photos or videos</button><span class="upload-note">Choose images or videos from this device</span></div>
+        </div>
+        <div class="gallery-grid" id="gallery-grid" aria-live="polite">
+          <figure class="gallery-item gallery-static"><img src="images/projects/timber-look-rolling-shutter.jpeg" alt="Timber-look rolling shutter at a residential entrance" loading="lazy"><figcaption><span>Timber-look rolling shutter</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/decorative-entrance-gate.jpeg" alt="Custom decorative metal entrance gate" loading="lazy"><figcaption><span>Decorative entrance gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/patterned-metal-gate.jpeg" alt="Custom patterned metal gate with geometric cut-outs" loading="lazy"><figcaption><span>Patterned metal gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/industrial-sliding-gate.jpeg" alt="Large industrial sliding gate" loading="lazy"><figcaption><span>Industrial sliding gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/burgundy-sliding-gate.jpeg" alt="Burgundy custom sliding entrance gate" loading="lazy"><figcaption><span>Custom sliding gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/orange-gate-site.jpeg" alt="Orange industrial sliding gate at a commercial entrance" loading="lazy"><figcaption><span>Industrial sliding gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/orange-gate-install.jpeg" alt="Orange sliding gate during installation" loading="lazy"><figcaption><span>Gate installation in progress</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/orange-gate-wide.jpeg" alt="Wide orange sliding gate at a company entrance" loading="lazy"><figcaption><span>Wide company entrance gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/timber-shutter-interior.jpeg" alt="Timber-look shutter with decorative panels" loading="lazy"><figcaption><span>Decorative timber-look shutter</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/sliding-gate-motor.jpeg" alt="Automatic motor fitted to a sliding gate" loading="lazy"><figcaption><span>Automatic gate motor</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/timber-shutter-exterior.jpeg" alt="Timber-look entrance shutter at a home" loading="lazy"><figcaption><span>Timber-look home entrance</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/timber-pattern-gate.jpeg" alt="Timber-finish sliding gate with patterned steel details" loading="lazy"><figcaption><span>Timber-finish custom gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><img src="images/projects/white-sliding-gate.jpeg" alt="White metal sliding gate at a residential entrance" loading="lazy"><figcaption><span>White sliding gate</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><video controls preload="metadata" playsinline aria-label="Rolling shutter project video"><source src="media/rolling-shutter-showcase.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption><span>Rolling shutter project video</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><video controls preload="metadata" playsinline aria-label="Entrance gate project video"><source src="media/entrance-gate-showcase.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption><span>Entrance gate project video</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><video controls preload="metadata" playsinline aria-label="Sliding gate project video"><source src="media/sliding-gate-showcase.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption><span>Sliding gate project video</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><video controls preload="metadata" playsinline aria-label="Gate fabrication project video"><source src="media/gate-project-showcase.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption><span>Gate fabrication video</span></figcaption></figure>
+          <figure class="gallery-item gallery-static"><video controls preload="metadata" playsinline aria-label="Motorized gate project video"><source src="media/motorized-gate-showcase.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption><span>Motorized gate video</span></figcaption></figure>          <div class="gallery-empty" id="gallery-empty" hidden>Your project gallery will appear here after you add media.</div>
+        </div>
+        <p class="gallery-storage-note">Your uploads are stored in this browser on this device.</p>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="about wrap">
+        <div class="about-panel"><div class="big-h">H</div><p>Thoughtful fabrication for entrances that work hard and feel like home.</p></div>
+        <div class="about-copy"><div class="eyebrow">Hitesh Industries · Bengaluru</div><h2>Your entrance, made to measure.</h2><p>Every property has its own space, style and routine. We work on customized gates and shutters that are planned around those details, with motorized options for convenient access.</p><ul class="checks"><li>Custom dimensions</li><li>Motorized options</li><li>Home &amp; business work</li><li>SS and MS fabrication</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section quote-section" id="quote">
+      <div class="wrap quote-layout">
+        <div class="quote-intro"><div class="eyebrow">Start your project</div><h2>Tell us what you’re planning.</h2><p>Share a few details about your entrance, shutter or fabrication requirement. Our team can review your needs and get back to you.</p><div class="quote-contact"><span>Prefer to talk?</span><a href="tel:+919448686423">Call 94486 86423</a></div></div>
+        <form class="quote-form" id="quote-form">
+          <div class="form-grid">
+            <label>Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+            <label>Phone number<input name="phone" type="tel" autocomplete="tel" required placeholder="Your phone number"></label>
+            <label>Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+            <label>What do you need?<select name="project" required><option value="" disabled selected>Select a solution</option><option>Rolling shutter</option><option>Sliding gate</option><option>House entrance gate</option><option>SS / MS fabrication</option><option>Boom barrier</option><option>Other custom project</option></select></label>
+            <label>Project location<input name="location" placeholder="Area / city"></label>
+            <label>Approx. size or opening<input name="size" placeholder="Width × height, if known"></label>
+            <label class="wide">Material, finish or operation needs<input name="specifications" placeholder="For example: MS, wood finish, motorized"></label>
+            <label class="wide">Tell us about your requirement<textarea name="details" rows="4" required placeholder="Describe the site, design, timeline, or anything else we should know"></textarea></label>
+            <label class="wide upload-field">Attach photos, drawings or documents<input id="quote-files" name="attachments" type="file" multiple accept="image/*,video/*,.pdf,.doc,.docx"><span class="file-help">Choose site photos, drawings or reference files. Your email app will ask you to attach them before sending.</span><span id="quote-file-list" class="file-list" aria-live="polite"></span></label>
+          </div>
+          <p class="quote-disclaimer">Submitting opens an email draft addressed to Hitesh Industries. Your request is sent when you press Send in your email app.</p>
+          <button class="button" type="submit">Prepare quotation request <span aria-hidden="true">→</span></button>
+          <p class="quote-status" id="quote-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <section class="cta">
+      <div class="cta-inner wrap"><div><h2>Building a home? Let’s plan the entrance.</h2><p>Call Hitesh Industries to discuss your gate or rolling shutter requirements.</p></div><a class="button" href="tel:+919448686423">Call 94486 86423 <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="contact wrap" id="contact">
+      <div><h2>Hitesh Industries</h2><p>No. 44, Manjunatha Layout, Segehalli Road,<br>Magadi Main Road, Bangalore - 560 091</p></div>
+      <div class="contact-links"><a href="tel:+919448686423">94486 86423</a><a href="tel:+919686701859">96867 01859</a><a href="mailto:hiteshindustries88@gmail.com">hiteshindustries88@gmail.com</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year">2026</span> Hitesh Industries</span><span>Custom gates, shutters &amp; fabrication · Bengaluru</span></div></footer>
+  <script>
+    (() => {
+      const dbName = 'hitesh-industries-gallery';
+      const storeName = 'media';
+      const input = document.getElementById('media-upload');
+      const grid = document.getElementById('gallery-grid');
+      const empty = document.getElementById('gallery-empty');
+      const trigger = document.getElementById('upload-trigger');
+      const managerUpload = document.getElementById('manager-upload');
+      managerUpload.hidden = new URLSearchParams(window.location.search).get('manager') !== '1';
+
+      function openDatabase() {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(dbName, 1);
+          request.onupgradeneeded = () => request.result.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+      async function allMedia() {
+        const db = await openDatabase();
+        return new Promise((resolve, reject) => {
+          const request = db.transaction(storeName).objectStore(storeName).getAll();
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+      async function saveMedia(file) {
+        const db = await openDatabase();
+        return new Promise((resolve, reject) => {
+          const request = db.transaction(storeName, 'readwrite').objectStore(storeName).add({ name: file.name, type: file.type, blob: file });
+          request.onsuccess = () => resolve();
+          request.onerror = () => reject(request.error);
+        });
+      }
+      async function removeMedia(id) {
+        const db = await openDatabase();
+        return new Promise((resolve, reject) => {
+          const request = db.transaction(storeName, 'readwrite').objectStore(storeName).delete(id);
+          request.onsuccess = () => resolve();
+          request.onerror = () => reject(request.error);
+        });
+      }
+      function render(items) {
+        grid.querySelectorAll('.gallery-user-item').forEach(item => item.remove());
+        empty.hidden = items.length + grid.querySelectorAll('.gallery-static').length > 0;
+        items.forEach(item => {
+          const figure = document.createElement('figure');
+          figure.className = 'gallery-item gallery-user-item';
+          const media = document.createElement(item.type.startsWith('video/') ? 'video' : 'img');
+          media.src = URL.createObjectURL(item.blob);
+          if (media.tagName === 'VIDEO') { media.controls = true; media.preload = 'metadata'; }
+          else media.alt = item.name;
+          const caption = document.createElement('figcaption');
+          const name = document.createElement('span'); name.textContent = item.name;
+          const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'gallery-remove'; remove.textContent = 'Remove';
+          remove.addEventListener('click', async () => { await removeMedia(item.id); loadGallery(); });
+          caption.append(name, remove); figure.append(media, caption); grid.append(figure);
+        });
+      }
+      async function loadGallery() {
+        try { render(await allMedia()); }
+        catch { empty.hidden = false; empty.textContent = 'Gallery storage is unavailable in this browser. Try opening this page in a current browser.'; }
+      }
+      trigger.addEventListener('click', () => input.click());
+      input.addEventListener('change', async () => {
+        const files = Array.from(input.files || []).filter(file => file.type.startsWith('image/') || file.type.startsWith('video/'));
+        try { for (const file of files) await saveMedia(file); await loadGallery(); }
+        catch { empty.hidden = false; empty.textContent = 'Could not save these files. The browser may not have enough storage space.'; }
+        input.value = '';
+      });
+      loadGallery();
+    })();
+  </script>
+  <script>
+    (() => {
+      const form = document.getElementById('quote-form');
+      const files = document.getElementById('quote-files');
+      const list = document.getElementById('quote-file-list');
+      const status = document.getElementById('quote-status');
+      files.addEventListener('change', () => {
+        list.textContent = Array.from(files.files || []).map(file => file.name).join(' · ');
+      });
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const fields = [
+          ['Name', data.get('name')], ['Phone', data.get('phone')], ['Email', data.get('email')],
+          ['Project type', data.get('project')], ['Location', data.get('location') || 'Not provided'],
+          ['Approx. size', data.get('size') || 'Not provided'], ['Material / operation', data.get('specifications') || 'Not provided'],
+          ['Requirements', data.get('details')], ['Selected files', Array.from(files.files || []).map(file => file.name).join(', ') || 'None']
+        ];
+        const body = fields.map(([label, value]) => `${label}: ${value}`).join('\n');
+        const subject = `Quotation request — ${data.get('project')}`;
+        status.textContent = 'Your email app should open with the request. Attach your selected files, then press Send.';
+        window.location.href = `mailto:hiteshindustries88@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
