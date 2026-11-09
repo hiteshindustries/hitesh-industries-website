@@ -23,7 +23,7 @@
     'body.dark-mode .theme-toggle{background:#b7ff00;color:#061000;border-color:#b7ff00;box-shadow:0 0 18px rgb(183 255 0 / 25%)}' +
     '.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:0 14px;border:1px solid #cfe0c9;border-radius:999px;background:#fff;color:#174b34;font:700 12px/1 system-ui,-apple-system,Segoe UI,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;white-space:nowrap}' +
     '.theme-toggle:hover{box-shadow:0 0 0 3px rgb(57 255 20 / 15%);border-color:#8acb60}' +
-    '@media(max-width:700px){.theme-toggle{min-height:36px;padding:0 10px;font-size:11px}}';
+    '@media(max-width:700px){.theme-toggle{min-height:34px;padding:0 9px;font-size:11px}}' + 'body.dark-mode .brand-mark{color:#fff!important}' + '.topbar .button{display:none!important}' + '.nav-actions{gap:8px!important}' + '.nav-actions .social-link .social-label{display:none!important}' + '.theme-toggle{min-height:34px;padding:0 10px;font-size:12px;gap:5px}' + '.brand{font-size:15px;gap:8px}' + '@media(max-width:700px){.nav{gap:9px}.nav-actions{gap:7px!important}.brand{font-size:13px}.brand-mark{width:34px;height:34px}.theme-toggle{min-height:34px;padding:0 9px;font-size:11px}}';
   document.head.appendChild(style);
   const dark = localStorage.getItem(key) === 'dark';
   const button = document.createElement('button');
